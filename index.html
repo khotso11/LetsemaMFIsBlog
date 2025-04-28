@@ -4,97 +4,237 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Letsema Project</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Letsema Project</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
-        <li class="nav-item"><a class="nav-link" href="#database">Database Design</a></li>
-        <li class="nav-item"><a class="nav-link" href="#architecture">Architecture</a></li>
-        <li class="nav-item"><a class="nav-link" href="#api">API Structure</a></li>
-        <li class="nav-item"><a class="nav-link" href="#frontend">Frontend</a></li>
-        <li class="nav-item"><a class="nav-link" href="#progress">Progress</a></li>
-        <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
-      </ul>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Letsema Project</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="#database">Database</a></li>
+          <li class="nav-item"><a class="nav-link" href="#architecture">Architecture</a></li>
+          <li class="nav-item"><a class="nav-link" href="#api">API</a></li>
+          <li class="nav-item"><a class="nav-link" href="#frontend">Frontend</a></li>
+          <li class="nav-item"><a class="nav-link" href="#progress">Progress</a></li>
+          <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="container my-5">
-  <section id="introduction">
-    <h2>Introduction</h2>
-    <p>The Letsema project is a distributed microfinance management system supporting Borrowers, MFI Admins, and Letsema Admins. This report outlines its development, challenges, and current system state.</p>
-  </section>
+  <main>
 
-  <section id="database">
-    <h2>Database Design</h2>
-    <ul>
-      <li><strong>Loan:</strong> loan_id, user_id, mfi_id, amount, interest_rate, etc.</li>
-      <li><strong>User:</strong> user_id, first_name, last_name, email, role, etc.</li>
-      <li><strong>MFI:</strong> mfi_id, name, location, contacts.</li>
-      <li><strong>Loan Repayment:</strong> repayment_id, loan_id, amount_paid, payment_date.</li>
-      <li><strong>MongoDB:</strong> Used for borrower credit histories.</li>
-    </ul>
-  </section>
+    <!-- Introduction -->
+    <section id="introduction" class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-8">
+          <h2 class="mb-3">Introduction</h2>
+          <p>
+            The Letsema project is a distributed microfinance management system supporting
+            Borrowers, MFI Admins, and Letsema Admins. This report outlines its development,
+            challenges, and current system state.
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <section id="architecture">
-    <h2>Distributed Database Architecture</h2>
-    <p>Originally attempted with Citus, the system moved to a simpler Master-Master PostgreSQL replication approach, integrated with Django multi-tenancy and MongoDB for non-relational data.</p>
-    <p>Each MFI operates under its own subdomain: <code>[tenant].localhost:8000</code></p>
-  </section>
+    <!-- Database Design -->
+    <section id="database" class="container py-5 bg-light">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="mb-4">Database Design</h2>
+        </div>
+        <div class="col-md-6">
+          <p>Key tables and fields include:</p>
+          <ul>
+            <li><strong>Loan:</strong> loan_id, user_id, mfi_id, amount, interest_rate, etc.</li>
+            <li><strong>User:</strong> user_id, first_name, last_name, email, role, etc.</li>
+            <li><strong>MFI:</strong> mfi_id, name, location, contacts.</li>
+            <li><strong>Loan Repayment:</strong> repayment_id, loan_id, amount_paid, payment_date.</li>
+            <li><strong>MongoDB:</strong> Used for borrower credit histories.</li>
+          </ul>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <div class="border p-4 text-center w-100">
+            <!-- Placeholder for an ER-diagram or schema image -->
+            <small class="text-muted">ER Diagram Here</small>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="api">
-    <h2>API Structure</h2>
-    <ul>
-      <li><strong>Borrower APIs:</strong> Register, login, view loans, repayments.</li>
-      <li><strong>Admin APIs:</strong> Manage users, MFIs, loans, repayments.</li>
-      <li><strong>Superuser Dashboard:</strong> Django Admin panel for full control.</li>
-    </ul>
-  </section>
+    <!-- Architecture -->
+    <section id="architecture" class="container py-5">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h2 class="mb-3">Distributed Database Architecture</h2>
+          <p>
+            Originally attempted with Citus, the system moved to a simpler Master–Master
+            PostgreSQL replication approach, integrated with Django multi-tenancy and
+            MongoDB for non-relational data.
+          </p>
+          <p>
+            Each MFI operates under its own subdomain:
+            <code class="d-block bg-light p-2 rounded">[tenant].localhost:8000</code>
+          </p>
+        </div>
+        <div class="col-12 col-md-6">
+          <!-- Placeholder or diagram -->
+          <div class="border p-4 text-center h-100">
+            <small class="text-muted">Replication Flowchart Here</small>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="frontend">
-    <h2>Frontend Development</h2>
-    <p>The frontend, built with React.js, currently supports basic admin interfaces. Borrower dashboards, loan application UI, and repayment views are under development.</p>
-  </section>
+    <!-- API Structure -->
+    <section id="api" class="container py-5 bg-light">
+      <h2 class="mb-4 text-center">API Structure</h2>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Borrower APIs</h5>
+              <ul class="mb-0">
+                <li>Register</li>
+                <li>Login</li>
+                <li>View Loans</li>
+                <li>View Repayments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Admin APIs</h5>
+              <ul class="mb-0">
+                <li>Manage Users</li>
+                <li>Manage MFIs</li>
+                <li>Manage Loans</li>
+                <li>Manage Repayments</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 text-center">
+        <h6>Superuser Dashboard</h6>
+        <p>Django Admin panel for full control over all models and data.</p>
+      </div>
+    </section>
 
-  <section id="progress">
-    <h2>Development Progress</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Completion</th>
-          <th>Remaining Tasks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Backend Database</td><td>90%</td><td>Optimize replication/failover</td></tr>
-        <tr><td>User Registration</td><td>100%</td><td>None</td></tr>
-        <tr><td>Loan Application</td><td>100%</td><td>None</td></tr>
-        <tr><td>Repayment Tracking</td><td>80%</td><td>Full dashboard UI missing</td></tr>
-        <tr><td>React.js Frontend</td><td>30%</td><td>Build borrower interfaces</td></tr>
-      </tbody>
-    </table>
-  </section>
+    <!-- Frontend Development -->
+    <section id="frontend" class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="mb-3">Frontend Development</h2>
+          <p>
+            The frontend, built with React.js, currently supports basic admin interfaces.
+            Borrower dashboards, loan application UI, and repayment views are under development.
+          </p>
+        </div>
+        <div class="col-md-6 text-center">
+          <!-- Placeholder for screenshot -->
+          <div class="border p-4">
+            <small class="text-muted">React UI Screenshot</small>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="links">
-    <h2>Project Links</h2>
-    <ul>
-      <li><a href="https://github.com/yourusername/project-repo" target="_blank">GitHub Repository</a></li>
-      <li><a href="https://yourjira.atlassian.net/browse/PROJECTKEY" target="_blank">Jira Project Board</a></li>
-    </ul>
-  </section>
-</div>
+    <!-- Development Progress -->
+    <section id="progress" class="container py-5 bg-light">
+      <h2 class="mb-4">Development Progress</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Completion</th>
+              <th>Remaining Tasks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Backend Database</td>
+              <td>90%</td>
+              <td>Optimize replication/failover</td>
+            </tr>
+            <tr>
+              <td>User Registration</td>
+              <td>100%</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Loan Application</td>
+              <td>100%</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Repayment Tracking</td>
+              <td>80%</td>
+              <td>Full dashboard UI missing</td>
+            </tr>
+            <tr>
+              <td>React.js Frontend</td>
+              <td>30%</td>
+              <td>Build borrower interfaces</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-<footer class="bg-dark text-white text-center py-3">
-  <p>Letsema Project - Distributed Microfinance System | 2025</p>
-</footer>
+    <!-- Project Links -->
+    <section id="links" class="container py-5">
+      <h2 class="mb-4 text-center">Project Links</h2>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a
+                href="https://github.com/yourusername/project-repo"
+                target="_blank"
+                class="text-decoration-none"
+              >GitHub Repository</a>
+            </li>
+            <li>
+              <a
+                href="https://yourjira.atlassian.net/browse/PROJECTKEY"
+                target="_blank"
+                class="text-decoration-none"
+              >Jira Project Board</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3">
+    <p class="mb-0">Letsema Project – Distributed Microfinance System | 2025</p>
+  </footer>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  ></script>
 </body>
 </html>
