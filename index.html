@@ -1,43 +1,100 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Letsema Project - Home</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Letsema Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Letsema Project</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="architecture.html">Architecture</a></li>
-          <li class="nav-item"><a class="nav-link" href="functionalities.html">Functionalities</a></li>
-          <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
-          <li class="nav-item"><a class="nav-link" href="progress.html">Progress</a></li>
-          <li class="nav-item"><a class="nav-link" href="links.html">Links</a></li>
-        </ul>
-      </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Letsema Project</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+        <li class="nav-item"><a class="nav-link" href="#database">Database Design</a></li>
+        <li class="nav-item"><a class="nav-link" href="#architecture">Architecture</a></li>
+        <li class="nav-item"><a class="nav-link" href="#api">API Structure</a></li>
+        <li class="nav-item"><a class="nav-link" href="#frontend">Frontend</a></li>
+        <li class="nav-item"><a class="nav-link" href="#progress">Progress</a></li>
+        <li class="nav-item"><a class="nav-link" href="#links">Links</a></li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <header class="bg-light p-5 text-center">
-    <h1>Welcome to Letsema Project</h1>
-    <p class="lead">Distributed Microfinance System for Loan and User Management</p>
-  </header>
-
-  <section class="container py-5">
+<div class="container my-5">
+  <section id="introduction">
     <h2>Introduction</h2>
-    <p>The Letsema project aims to design and implement a distributed microfinance system for managing loans, users, and MFIs. The system supports three primary roles: Borrowers, MFI Admins, and Letsema Admins.</p>
-    <p>We focus on database scalability, role-based access, and multi-tenant subdomain architectures to ensure future-proof growth and resilient operations.</p>
+    <p>The Letsema project is a distributed microfinance management system supporting Borrowers, MFI Admins, and Letsema Admins. This report outlines its development, challenges, and current system state.</p>
   </section>
 
-  <footer class="bg-primary text-white text-center py-3">
-    <p>&copy; 2025 Letsema Project</p>
-  </footer>
+  <section id="database">
+    <h2>Database Design</h2>
+    <ul>
+      <li><strong>Loan:</strong> loan_id, user_id, mfi_id, amount, interest_rate, etc.</li>
+      <li><strong>User:</strong> user_id, first_name, last_name, email, role, etc.</li>
+      <li><strong>MFI:</strong> mfi_id, name, location, contacts.</li>
+      <li><strong>Loan Repayment:</strong> repayment_id, loan_id, amount_paid, payment_date.</li>
+      <li><strong>MongoDB:</strong> Used for borrower credit histories.</li>
+    </ul>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <section id="architecture">
+    <h2>Distributed Database Architecture</h2>
+    <p>Originally attempted with Citus, the system moved to a simpler Master-Master PostgreSQL replication approach, integrated with Django multi-tenancy and MongoDB for non-relational data.</p>
+    <p>Each MFI operates under its own subdomain: <code>[tenant].localhost:8000</code></p>
+  </section>
+
+  <section id="api">
+    <h2>API Structure</h2>
+    <ul>
+      <li><strong>Borrower APIs:</strong> Register, login, view loans, repayments.</li>
+      <li><strong>Admin APIs:</strong> Manage users, MFIs, loans, repayments.</li>
+      <li><strong>Superuser Dashboard:</strong> Django Admin panel for full control.</li>
+    </ul>
+  </section>
+
+  <section id="frontend">
+    <h2>Frontend Development</h2>
+    <p>The frontend, built with React.js, currently supports basic admin interfaces. Borrower dashboards, loan application UI, and repayment views are under development.</p>
+  </section>
+
+  <section id="progress">
+    <h2>Development Progress</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Completion</th>
+          <th>Remaining Tasks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Backend Database</td><td>90%</td><td>Optimize replication/failover</td></tr>
+        <tr><td>User Registration</td><td>100%</td><td>None</td></tr>
+        <tr><td>Loan Application</td><td>100%</td><td>None</td></tr>
+        <tr><td>Repayment Tracking</td><td>80%</td><td>Full dashboard UI missing</td></tr>
+        <tr><td>React.js Frontend</td><td>30%</td><td>Build borrower interfaces</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="links">
+    <h2>Project Links</h2>
+    <ul>
+      <li><a href="https://github.com/yourusername/project-repo" target="_blank">GitHub Repository</a></li>
+      <li><a href="https://yourjira.atlassian.net/browse/PROJECTKEY" target="_blank">Jira Project Board</a></li>
+    </ul>
+  </section>
+</div>
+
+<footer class="bg-dark text-white text-center py-3">
+  <p>Letsema Project - Distributed Microfinance System | 2025</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
