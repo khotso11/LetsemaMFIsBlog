@@ -1,0 +1,72 @@
+:root {
+    --bg-light:    #ECEFCA;  /* very light cream */
+    --sidebar-bg:  #213448;  /* dark slate blue */
+    --primary:     #547792;  /* medium steel blue */
+    --dark:        #06202B;  /* nearly black teal */
+    --accent:      #077A7D;  /* rich teal */
+  }
+  
+  /* Base background & text */
+  body {
+    background-color: var(--bg-light);
+    color: var(--dark);
+  }
+  
+  /* Navbar */
+  .navbar-custom {
+    background-color: var(--sidebar-bg);
+  }
+  .navbar-custom .navbar-brand,
+  .navbar-custom .nav-link {
+    color: #ECEFCA;           /* light text on dark */
+  }
+  .navbar-custom .nav-link:hover {
+    color: var(--accent);
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    background-color: var(--dark);
+  }
+  .sidebar .nav-link {
+    color: var(--bg-light);
+  }
+  .sidebar .nav-link.active,
+  .sidebar .nav-link:hover {
+    background-color: var(--accent);
+    color: #fff;
+  }
+  
+  /* Section blocks */
+  .section {
+    padding: 4rem 0;
+  }
+  .section:nth-of-type(even) {
+    background-color: #fff;
+  }
+  .section:nth-of-type(odd) {
+    background-color: var(--bg-light);
+  }
+  .section h2 {
+    color: var(--sidebar-bg);
+    border-left: 4px solid var(--accent);
+    padding-left: .75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Cards (API, KPI, etc.) */
+  .card {
+    border-top: 4px solid var(--primary);
+  }
+  .card .card-title {
+    color: var(--dark);
+  }
+  
+  /* Code blocks */
+  code {
+    background-color: var(--bg-light);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    color: var(--dark);
+  }
+  
