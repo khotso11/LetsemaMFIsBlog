@@ -1,5 +1,6 @@
 # LetsemaMFIsBlog
 # Letsema - Distributed Microfinance System
+![brave_screenshot_kkfinance localhost](https://github.com/user-attachments/assets/1d5cafa6-532e-4910-a77e-5dfc7a8b0c02)
 
 ## Introduction
 
@@ -68,11 +69,13 @@ Letsema is a distributed microfinance management system designed to help Microfi
 ### Installation
 ```bash
 # Backend setup
-[git clone https://github.com/yourorg/letsema-mfi.git](https://github.com/khotso11/LetsemaMFIsBlog.git)
+https://github.com/khotso11/LetsemaMFIsBlog.git
 cd letsema-backend
 pip install -r requirements.txt
 python manage.py migrate
 
+#Jira page
+https://hohobe.atlassian.ne/jira/software/projects/LETSEMA/boards/2
 # Frontend setup
 cd ../letsema-frontend
 npm install
