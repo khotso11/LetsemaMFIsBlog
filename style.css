@@ -1,72 +1,53 @@
-:root {
-    --bg-light:    #ECEFCA;  /* very light cream */
-    --sidebar-bg:  #213448;  /* dark slate blue */
-    --primary:     #547792;  /* medium steel blue */
-    --dark:        #06202B;  /* nearly black teal */
-    --accent:      #077A7D;  /* rich teal */
-  }
-  
-  /* Base background & text */
-  body {
-    background-color: var(--bg-light);
-    color: var(--dark);
-  }
-  
-  /* Navbar */
-  .navbar-custom {
-    background-color: var(--sidebar-bg);
-  }
-  .navbar-custom .navbar-brand,
-  .navbar-custom .nav-link {
-    color: #ECEFCA;           /* light text on dark */
-  }
-  .navbar-custom .nav-link:hover {
-    color: var(--accent);
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    background-color: var(--dark);
-  }
-  .sidebar .nav-link {
-    color: var(--bg-light);
-  }
-  .sidebar .nav-link.active,
-  .sidebar .nav-link:hover {
-    background-color: var(--accent);
-    color: #fff;
-  }
-  
-  /* Section blocks */
-  .section {
-    padding: 4rem 0;
-  }
-  .section:nth-of-type(even) {
-    background-color: #fff;
-  }
-  .section:nth-of-type(odd) {
-    background-color: var(--bg-light);
-  }
-  .section h2 {
-    color: var(--sidebar-bg);
-    border-left: 4px solid var(--accent);
-    padding-left: .75rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Cards (API, KPI, etc.) */
-  .card {
-    border-top: 4px solid var(--primary);
-  }
-  .card .card-title {
-    color: var(--dark);
-  }
-  
-  /* Code blocks */
-  code {
-    background-color: var(--bg-light);
-    padding: .25rem .5rem;
-    border-radius: .25rem;
-    color: var(--dark);
-  }
-  
+/* 1. Creamy background on all sections/containers */
+body,
+.main,
+section.container,
+.bg-light {
+  background-color: #ECEFCA !important;
+}
+
+/* 2. Global text in deep teal */
+body {
+  color: #06202B;
+}
+
+/* 3. Navbar: deep blue bg + creamy text */
+.navbar,
+footer.bg-dark {
+  background-color: #213448 !important;
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #ECEFCA !important;
+}
+.navbar-nav .nav-link:hover {
+  color: #077A7D !important;
+}
+
+/* 4. Card top accent in medium steel blue */
+.card {
+  border-top: 4px solid #547792;
+}
+
+/* 5. H2 headings: rich-teal underline + consistent text color */
+h2 {
+  color: #06202B;
+  border-bottom: 2px solid #077A7D;
+  padding-bottom: .5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 6. Links & hover highlights in rich teal */
+a,
+.nav-link {
+  transition: color .2s ease-in-out;
+}
+a:hover,
+.nav-link:hover {
+  color: #077A7D !important;
+}
+
+/* 7. Override any remaining dark backgrounds */
+.bg-dark {
+  background-color: #06202B !important;
+}
