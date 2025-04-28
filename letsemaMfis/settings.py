@@ -347,7 +347,7 @@ DATABASES = {
         'NAME': config('DB_NAME', default='letsema_mfi'),
         'USER': config('DB_USER_MASTER', default='postgres'),
         'PASSWORD': config('DB_PASSWORD_MASTER', default='admin'),
-        'HOST': config('DB_HOST_MASTER', default='192.168.72.7'),
+        'HOST': config('DB_HOST_MASTER', default='192.168.'),
         'PORT': config('DB_PORT', default='5432'),
         'CONN_MAX_AGE': 600,
     },
