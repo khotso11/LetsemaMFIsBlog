@@ -3,12 +3,12 @@ body,
 .main,
 section.container,
 .bg-light {
-  background-color: #ECEFCA !important;
+  background-color: #4e11f7 !important;
 }
 
 /* 2. Global text in deep teal */
 body {
-  color: #06202B;
+  color: #1e404e;
 }
 
 /* 3. Navbar: deep blue bg + creamy text */
@@ -18,21 +18,21 @@ footer.bg-dark {
 }
 .navbar-brand,
 .navbar-nav .nav-link {
-  color: #ECEFCA !important;
+  color: #02063f !important;
 }
 .navbar-nav .nav-link:hover {
-  color: #077A7D !important;
+  color: #030127 !important;
 }
 
 /* 4. Card top accent in medium steel blue */
 .card {
-  border-top: 4px solid #547792;
+  border-top: 4px solid #050135;
 }
 
 /* 5. H2 headings: rich-teal underline + consistent text color */
 h2 {
   color: #06202B;
-  border-bottom: 2px solid #077A7D;
+  border-bottom: 2px solid #040118;
   padding-bottom: .5rem;
   margin-bottom: 1.5rem;
 }
@@ -44,7 +44,7 @@ a,
 }
 a:hover,
 .nav-link:hover {
-  color: #077A7D !important;
+  color: #0717ff !important;
 }
 
 /* 7. Override any remaining dark backgrounds */
